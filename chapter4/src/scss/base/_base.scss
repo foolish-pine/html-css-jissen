@@ -1,0 +1,62 @@
+/*----------------------------------
+  ベース
+------------------------------------*/
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem; // ルートのフォントサイズ = 1.6em (16px)
+  line-height: 1.75;
+  font-family: $f_sans;
+}
+
+main {
+  display: block;
+}
+
+a, button {
+  transition: 0.3s;
+}
+
+button {
+  cursor: pointer;
+  appearance: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+[lang="en"] {
+  font-family: $f_sans_e;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+iframe {
+  width: 100%;
+}
+
+.contents {
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  @include mq_min_md {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+}

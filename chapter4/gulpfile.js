@@ -1,4 +1,7 @@
 const gulp = require("gulp");
+const ejs = require("gulp-ejs");
+const rename = require("gulp-rename");
+const prettify = require("gulp-prettify");
 const sass = require("gulp-sass");
 const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
@@ -18,6 +21,22 @@ const browserSync = require("browser-sync");
 const { series } = require("gulp");
 
 sass.compiler = require("node-sass");
+
+function htmlTranspile() {
+  return gulp
+    .src(["src/ejs/**/*.ejs", "!" + "src/ejs/**/_*.ejs"])
+    .pipe(plumber({ errorHandler: notify.onError("<%= error.message %>") }))
+    .pipe(ejs())
+    .pipe(
+      prettify({
+        indent_size: 2,
+        indent_with_tabs: true,
+      })
+    )
+    .pipe(rename({ extname: ".html" }))
+    .pipe(gulp.dest("dist/"))
+    .pipe(browserSync.reload({ stream: true }));
+}
 
 function cssTranspile() {
   return gulp
@@ -56,12 +75,16 @@ function scsscomb() {
 }
 
 function jsTranspile() {
-  return gulp.src("srcjs/**/*.js").pipe(
-    plumber({ errorHandler: notify.onError("<%= error.message %>") })
-      .pipe(uglify())
-      .pipe(gulp.dest("dist/js/"))
-      .pipe(browserSync.reload({ stream: true }))
-  );
+  return gulp
+    .src("src/js/**/*.js")
+    .pipe(
+      plumber({
+        errorHandler: notify.onError("<%= error.message %>"),
+      })
+    )
+    .pipe(uglify())
+    .pipe(gulp.dest("dist/js/"))
+    .pipe(browserSync.reload({ stream: true }));
 }
 
 function imageMinify() {
@@ -93,28 +116,22 @@ function cleanImage() {
 function server(done) {
   browserSync.init({
     server: {
-      baseDir: "dist/html",
+      baseDir: "dist/",
     },
   });
   done();
 }
 
-function bsReload(done) {
-  browserSync.reload();
-  done();
-}
-
 function watch(done) {
+  gulp.watch(["src/ejs/*", "src/ejs/**/*"], htmlTranspile);
   gulp.watch(
     ["src/scss/*", "src/scss/**/*"],
-    series(scsscombInit, scsscomb, cssTranspile, bsReload)
+    series(scsscombInit, scsscomb, cssTranspile)
   );
-  gulp.watch(["src/js/*", "src/js/**/*"], series(jsTranspile, bsReload));
-  gulp.watch(["src/img/*", "src/img/**/*"], series(imageMinify, bsReload));
-  gulp.watch(["dist/html/*"], bsReload);
+  gulp.watch(["src/js/*", "src/js/**/*"], jsTranspile);
+  gulp.watch(["src/img/*", "src/img/**/*"], imageMinify);
   done();
 }
 
 exports.default = gulp.parallel(server, watch);
 exports.imagemin = gulp.series(cleanImage, imageMinify);
-exports.scsscomb = gulp.series(scsscombInit, scsscomb);

@@ -1,0 +1,36 @@
+<% path = '.'; %>
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/_head'); %>
+
+<body>
+  <%- include('common/_header'); %>
+  <main class="contents">
+    <div class="mv">
+      <picture class="mv__ph">
+        <source media="(max-width: 767px)" srcset="<%= path %>/img/ph_mv_sp.jpg">
+        <img src="<%= path %>/img/ph_mv_pc.jpg" alt="室内写真">
+      </picture>
+      <div class="mv__inner">
+        <p class="mv__catch">神保町駅徒歩3分の<br class="sp-only">
+          駅チカに、<br>
+          24h OPEN<span>※</span>の<br class="sp-only">
+          コワーキングスペース誕生!!</p>
+        <p class="mv__note">※マスタープラン会員のみ</p>
+      </div>
+      <!-- /.mv__inner -->
+    </div>
+    <!-- /.mv -->
+    </div>
+    <div class="container">
+      <section class="intro">
+
+      </section>
+    </div>
+    <!-- /.container -->
+  </main>
+  <%- include('common/_footer'); %>
+</body>
+
+</html>

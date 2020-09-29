@@ -1,0 +1,175 @@
+/*----------------------------------
+  Header
+------------------------------------*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 60px;
+  background-color: $c_white;
+}
+
+.header__inner {
+  display: flex;
+  max-width: $base_width;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  width: 185px;
+}
+
+.hamburger {
+  width: 25px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  span {
+    display: block;
+    position: relative;
+    height: 2px;
+    background: $c_black;
+    transition: 0.3s;
+    &::before, &::after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $c_black;
+      content: "";
+      transition: 0.3s;
+    }
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      bottom: -10px;
+    }
+  }
+}
+
+@include mq_min_md {
+  .header {
+    height: 100px;
+  }
+  .header__inner {
+    height: 100px;
+  }
+  .header__logo {
+    width: 250px;
+  }
+  .hamburger {
+    display: none;
+  }
+}
+
+/*----------------------------------
+  Gnav
+------------------------------------*/
+@include mq_max_md {
+  .gnav {
+    opacity: 0;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transform: translateY(-120%);
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: $c_white;
+    transition: 0.3s;
+  }
+
+  .gnav__list {
+    border-top: 1px solid $c_gray2;
+    li {
+      border-bottom: 1px solid $c_gray2;
+    }
+    a {
+      display: block;
+      position: relative;
+      padding: 15px 20px;
+      color: $c_black;
+      font-weight: bold;
+      text-decoration: none;
+      &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        bottom: 0;
+        transform: rotate(45deg);
+        width: 0.5em;
+        height: 0.5em;
+        margin: auto;
+        border-top: 2px solid $c_main1;
+        border-right: 2px solid $c_main1;
+        content: "";
+      }
+    }
+    [lang="en"] {
+      margin-left: 1em;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@include mq_min_md {
+  .gnav__list {
+    display: flex;
+    align-items: center;
+    li {
+      margin: 0 1em;
+    }
+    a {
+      display: block;
+      color: $c_black;
+      font-weight: bold;
+      font-size: 2rem;
+      line-height: 1.2;
+      text-decoration: none;
+      text-align: center;
+      &:hover {
+        color: $c_main1;
+      }
+    }
+    [lang="en"] {
+      display: block;
+      font-size: 1.2rem;
+    }
+  }
+}
+@include mq_min_lg {
+  .gnav__list {
+    li {
+      margin: 0 2em;
+    }
+  }
+}
+
+/* メニューOPEN時
+--------------------*/
+.js-hamburger__open {
+  span {
+    background: transparent;
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+  .gnav {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,63 @@
+//---------------------------------
+//mixin
+//---------------------------------
+$breakPoint_xl: 1039px;
+$breakPoint_lg: 949px;
+$breakPoint_md: 767px;
+$breakPoint_sm: 499px;
+$breakPoint_xs: 374px;
+
+//max-width
+@mixin mq_max_xl {
+  @media (max-width: $breakPoint_xl) {
+    @content;
+  }
+}
+@mixin mq_max_lg {
+  @media (max-width: $breakPoint_lg) {
+    @content;
+  }
+}
+@mixin mq_max_md {
+  //750px以下spレイアウト
+  @media (max-width: $breakPoint_md) {
+    @content;
+  }
+}
+@mixin mq_max_sm {
+  @media (max-width: $breakPoint_sm) {
+    @content;
+  }
+}
+@mixin mq_max_xs {
+  @media (max-width: $breakPoint_xs) {
+    @content;
+  }
+}
+
+//min-width
+@mixin mq_min_xs {
+  @media (min-width: $breakPoint_xs +1) {
+    @content;
+  }
+}
+@mixin mq_min_sm {
+  @media (min-width: $breakPoint_sm +1) {
+    @content;
+  }
+}
+@mixin mq_min_md {
+  @media (min-width: $breakPoint_md +1) {
+    @content;
+  }
+}
+@mixin mq_min_lg {
+  @media (min-width: $breakPoint_lg +1) {
+    @content;
+  }
+}
+@mixin mq_min_xl {
+  @media (min-width: $breakPoint_xl +1) {
+    @content;
+  }
+}
