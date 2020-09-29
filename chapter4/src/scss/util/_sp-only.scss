@@ -1,0 +1,18 @@
+/*----------------------------------
+  sp-only
+------------------------------------*/
+
+.sp-only {
+  display: block;
+}
+.pc-only {
+  display: none;
+}
+@include mq_min_md {
+  .sp-only {
+    display: none;
+  }
+  .pc-only {
+    display: block;
+  }
+}

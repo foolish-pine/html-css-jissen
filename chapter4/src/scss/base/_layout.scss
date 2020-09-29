@@ -1,0 +1,21 @@
+/*----------------------------------
+  レイアウト
+------------------------------------*/
+.contents {
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  @include mq_min_md {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+}
+
+.container {
+  max-width: $base_width;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section {
+  margin: 80px 0;
+}
