@@ -1,17 +1,23 @@
-<% path = '.'; %>
-<% directory = '.'; %>
+<%
+pageData = {
+  pageTitle: "",
+  description: ""
+}
+cssPath = "css/page";
+rootPath = ".";
+%>
 
 <!DOCTYPE html>
 <html lang="ja">
-<%- include('common/_head'); %>
+<%- include("module/_head", pageData); %>
 
 <body>
-  <%- include('common/_header'); %>
+  <%- include("module/_header"); %>
   <main class="contents">
     <div class="mv">
       <picture class="mv__ph">
-        <source media="(max-width: 767px)" srcset="<%= path %>/img/ph_mv_sp.jpg">
-        <img src="<%= path %>/img/ph_mv_pc.jpg" alt="室内写真">
+        <source media="(max-width: 767px)" srcset="img/ph_mv_sp.jpg">
+        <img src="img/ph_mv_pc.jpg" alt="室内写真">
       </picture>
       <div class="mv__inner">
         <p class="mv__catch">神保町駅徒歩3分の<br class="sp-only">
@@ -42,7 +48,9 @@
     </div>
     <!-- /.container -->
   </main>
-  <%- include('common/_footer'); %>
+  <%- include("module/_footer"); %>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

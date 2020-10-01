@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const ejs = require("gulp-ejs");
 const rename = require("gulp-rename");
 const prettify = require("gulp-prettify");
+const htmlmin = require("gulp-htmlmin");
 const sass = require("gulp-sass");
 const plumber = require("gulp-plumber");
 const notify = require("gulp-notify");
@@ -34,6 +35,7 @@ function htmlTranspile() {
       })
     )
     .pipe(rename({ extname: ".html" }))
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("dist/"))
     .pipe(browserSync.reload({ stream: true }));
 }
@@ -123,13 +125,10 @@ function server(done) {
 }
 
 function watch(done) {
-  gulp.watch(["src/ejs/*", "src/ejs/**/*"], htmlTranspile);
-  gulp.watch(
-    ["src/scss/*", "src/scss/**/*"],
-    series(scsscombInit, scsscomb, cssTranspile)
-  );
-  gulp.watch(["src/js/*", "src/js/**/*"], jsTranspile);
-  gulp.watch(["src/img/*", "src/img/**/*"], imageMinify);
+  gulp.watch("src/ejs/**/*", htmlTranspile);
+  gulp.watch("src/scss/**/*", series(scsscombInit, scsscomb, cssTranspile));
+  gulp.watch("src/js/**/*", jsTranspile);
+  gulp.watch("src/img/**/*", imageMinify);
   done();
 }
 
