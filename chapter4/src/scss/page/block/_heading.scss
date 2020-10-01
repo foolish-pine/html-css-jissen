@@ -1,0 +1,38 @@
+/*----------------------------------
+  Heading
+------------------------------------*/
+.heading {
+  display: flex;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  justify-content: center;
+  align-items: center;
+  &::before, &::after {
+    display: block;
+    transform: translateY(-10px);
+    border-top: 1px solid $c_main1;
+    flex-grow: 1;
+    content: "";
+  }
+}
+
+.heading__title {
+  margin: 0 15px;
+  font-size: 2.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-align: center;
+  [lang="en"] {
+    display: block;
+    font-size: 1.2rem;
+  }
+}
+
+@include mq_min_md {
+  .heading__title {
+    font-size: 3.6rem;
+    [lang="en"] {
+      font-size: 1.6rem;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+/*----------------------------------
+  Button
+------------------------------------*/
+.button {
+  display: block;
+  position: relative;
+  padding: 30px;
+  border: 2px solid;
+  border-radius: 4px;
+  background: $c_white;
+  color: inherit;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    transform: rotate(45deg);
+    width: 0.5em;
+    height: 0.5em;
+    margin: auto;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    content: "";
+  }
+}
