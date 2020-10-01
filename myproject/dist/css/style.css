@@ -1,9 +1,0 @@
-body {
-  color: #333;
-  line-height: 1.5; }
-
-.gradient {
-  background-color: linear-gradient(90deg, #000 0%, #fff 100%); }
-
-.grid {
-  display: grid; }
