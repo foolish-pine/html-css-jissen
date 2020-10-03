@@ -1,0 +1,28 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {},
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": false,
+        "trailingComma": "es5"
+      }
+    ],
+    "no-undef": "warn",
+    "no-console": "warn",
+    "no-alert": "warn",
+    "eqeqeq": "warn",
+    "no-unused-vars": "warn",
+    "no-var": "warn"
+  }
+}

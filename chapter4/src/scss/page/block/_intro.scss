@@ -3,11 +3,11 @@
 ------------------------------------*/
 .intro__title {
   margin: 30px 0;
-  color: $c_main1;
   font-size: 2.8rem;
   line-height: 1.5;
-  letter-spacing: 0.1em;
+  color: $c_main1;
   text-align: center;
+  letter-spacing: 0.1em;
 }
 
 .intro__text {
@@ -21,8 +21,8 @@
 
 .intro__ph {
   display: flex;
-  margin: 40px -20px 0;
   flex-wrap: wrap;
+  margin: 40px -20px 0;
   img {
     width: 50%;
   }
@@ -30,8 +30,8 @@
 
 @include mq_min_md {
   .intro__ph {
-    margin: 40px 0 0;
     flex-wrap: nowrap;
+    margin: 40px 0 0;
     img {
       width: 25%;
     }

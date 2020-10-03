@@ -1,1 +1,1 @@
-$(function(){$("#hamburger").on("click",function(){$(".header").toggleClass("js-hamburger__open")})});
+"use strict";$(function(){$("#hamburger").on("click",function(){$(".header").toggleClass("js-hamburger__open")})});

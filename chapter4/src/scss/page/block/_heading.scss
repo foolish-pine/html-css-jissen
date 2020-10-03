@@ -3,16 +3,17 @@
 ------------------------------------*/
 .heading {
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 80px;
   margin-bottom: 80px;
-  justify-content: center;
-  align-items: center;
-  &::before, &::after {
+  &::before,
+  &::after {
     display: block;
-    transform: translateY(-10px);
-    border-top: 1px solid $c_main1;
     flex-grow: 1;
     content: "";
+    border-top: 1px solid $c_main1;
+    transform: translateY(-10px);
   }
 }
 
@@ -20,8 +21,8 @@
   margin: 0 15px;
   font-size: 2.8rem;
   line-height: 1.5;
-  letter-spacing: 0.1em;
   text-align: center;
+  letter-spacing: 0.1em;
   [lang="en"] {
     display: block;
     font-size: 1.2rem;

@@ -3,8 +3,8 @@
 ------------------------------------*/
 .footer {
   position: relative;
-  background-color: $c_gray4;
   color: $c_white;
+  background-color: $c_gray4;
   * {
     color: inherit;
   }
@@ -12,9 +12,9 @@
 
 .footer__inner {
   max-width: $base_width;
-  margin: 0 auto;
   padding-right: 20px;
   padding-left: 20px;
+  margin: 0 auto;
 }
 
 .footer__profile {
@@ -37,6 +37,7 @@
     margin-right: 15px;
   }
 }
+
 .footer__link01 {
   margin-right: -20px;
   margin-left: -20px;
@@ -45,27 +46,27 @@
     border-bottom: 1px solid $c_gray3;
   }
   a {
-    display: block;
     position: relative;
+    display: block;
     padding: 15px 20px;
     text-decoration: none;
     &:hover {
-      background-color: $c_gray3;
       color: $c_white;
+      background-color: $c_gray3;
     }
     &::after {
-      display: block;
       position: absolute;
       top: 0;
       right: 20px;
       bottom: 0;
-      transform: rotate(45deg);
+      display: block;
       width: 0.5em;
       height: 0.5em;
       margin: auto;
+      content: "";
       border-top: 2px solid;
       border-right: 2px solid;
-      content: "";
+      transform: rotate(45deg);
     }
   }
 }
@@ -89,11 +90,11 @@
 
 .footer__copyright {
   display: block;
-  margin: 0 -20px;
   padding: 10px 20px;
-  background-color: #000;
+  margin: 0 -20px;
   font-size: 1.2rem;
   text-align: center;
+  background-color: #000;
 }
 
 .footer__pagetop {
@@ -106,19 +107,19 @@
     height: 0;
     padding-top: 60px;
     overflow: hidden;
-    background-color: $c_gray4;
     color: $c_white;
+    background-color: $c_gray4;
     &::before {
-      display: block;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -25%) rotate(-45deg);
+      display: block;
       width: 15px;
       height: 15px;
+      content: "";
       border-top: 2px solid;
       border-right: 2px solid;
-      content: "";
+      transform: translate(-50%, -25%) rotate(-45deg);
     }
   }
 }
@@ -142,8 +143,8 @@
       display: inline;
       padding: 0;
       &:hover {
-        background: none;
         text-decoration: underline;
+        background: none;
       }
       &::after {
         display: none;
@@ -160,7 +161,5 @@
     a {
       font-size: 1.6rem;
     }
-  }
-  .footer__copyright {
   }
 }

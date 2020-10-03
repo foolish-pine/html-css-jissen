@@ -13,12 +13,12 @@
 
 .header__inner {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: $base_width;
   height: 60px;
-  margin: 0 auto;
   padding: 0 20px;
-  justify-content: space-between;
-  align-items: center;
+  margin: 0 auto;
 }
 
 .header__logo {
@@ -29,22 +29,23 @@
   width: 25px;
   height: 20px;
   padding: 0;
-  border: 0;
   background: none;
+  border: 0;
   span {
-    display: block;
     position: relative;
+    display: block;
     height: 2px;
     background: $c_black;
     transition: 0.3s;
-    &::before, &::after {
-      display: block;
+    &::before,
+    &::after {
       position: absolute;
       left: 0;
+      display: block;
       width: 100%;
       height: 2px;
-      background: $c_black;
       content: "";
+      background: $c_black;
       transition: 0.3s;
     }
     &::before {
@@ -76,15 +77,15 @@
 ------------------------------------*/
 @include mq_max_md {
   .gnav {
-    opacity: 0;
     position: fixed;
     top: 60px;
     left: 0;
-    transform: translateY(-120%);
     width: 100%;
     height: calc(100vh - 60px);
     background: $c_white;
+    opacity: 0;
     transition: 0.3s;
+    transform: translateY(-120%);
   }
 
   .gnav__list {
@@ -93,25 +94,25 @@
       border-bottom: 1px solid $c_gray2;
     }
     a {
-      display: block;
       position: relative;
+      display: block;
       padding: 15px 20px;
-      color: $c_black;
       font-weight: bold;
+      color: $c_black;
       text-decoration: none;
       &::after {
-        display: block;
         position: absolute;
         top: 0;
         right: 20px;
         bottom: 0;
-        transform: rotate(45deg);
+        display: block;
         width: 0.5em;
         height: 0.5em;
         margin: auto;
+        content: "";
         border-top: 2px solid $c_main1;
         border-right: 2px solid $c_main1;
-        content: "";
+        transform: rotate(45deg);
       }
     }
     [lang="en"] {
@@ -130,12 +131,12 @@
     }
     a {
       display: block;
-      color: $c_black;
-      font-weight: bold;
       font-size: 2rem;
+      font-weight: bold;
       line-height: 1.2;
-      text-decoration: none;
+      color: $c_black;
       text-align: center;
+      text-decoration: none;
       &:hover {
         color: $c_main1;
       }
