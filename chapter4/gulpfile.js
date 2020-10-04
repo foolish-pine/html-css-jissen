@@ -42,7 +42,7 @@ function htmlTranspile() {
 
 function cssTranspile() {
   return gulp
-    .src("src/scss/**/*.scss")
+    .src("src/scss/**/*.scss", { sourcemaps: true })
     .pipe(sassGlob())
     .pipe(sass({ outputStyle: "expanded" }))
     .pipe(postcss([autoprefixer({ grid: true })]))
@@ -51,7 +51,7 @@ function cssTranspile() {
         errorHandler: notify.onError("<%= error.message %>"),
       })
     )
-    .pipe(gulp.dest("dist/css/"))
+    .pipe(gulp.dest("dist/css/", { sourcemaps: "." }))
     .pipe(browserSync.reload({ stream: true }));
 }
 
@@ -119,7 +119,7 @@ function jsEslint() {
 
 function jsTranspile() {
   return gulp
-    .src("src/js/**/*.js")
+    .src("src/js/**/*.js", { sourcemaps: true })
     .pipe(
       plumber({
         errorHandler: notify.onError("<%= error.message %>"),
@@ -131,7 +131,7 @@ function jsTranspile() {
       })
     )
     .pipe(uglify())
-    .pipe(gulp.dest("dist/js/"))
+    .pipe(gulp.dest("dist/js/", { sourcemaps: "." }))
     .pipe(browserSync.reload({ stream: true }));
 }
 
@@ -180,4 +180,3 @@ function watch(done) {
 
 exports.default = gulp.series(scssStylelintInit, cssTranspile, jsEslintInit, jsTranspile, watch, server);
 exports.imagemin = gulp.series(cleanImage, imageMinify);
-exports.cssTranspile = cssTranspile;
