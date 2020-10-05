@@ -90,9 +90,10 @@
 
   .gnav__list {
     border-top: 1px solid $c_gray2;
-    li {
-      border-bottom: 1px solid $c_gray2;
-    }
+  }
+
+  .gnav__item {
+    border-bottom: 1px solid $c_gray2;
     a {
       position: relative;
       display: block;
@@ -126,9 +127,9 @@
   .gnav__list {
     display: flex;
     align-items: center;
-    li {
-      margin: 0 1em;
-    }
+  }
+  .gnav__item {
+    margin: 0 0.9em;
     a {
       display: block;
       font-size: 2rem;
@@ -148,10 +149,8 @@
   }
 }
 @include mq_min_lg {
-  .gnav__list {
-    li {
-      margin: 0 2em;
-    }
+  .gnav__item {
+    margin: 0 2em;
   }
 }
 

@@ -578,10 +578,10 @@ iframe {
   .gnav__list {
     border-top: 1px solid #ccc;
   }
-  .gnav__list li {
+  .gnav__item {
     border-bottom: 1px solid #ccc;
   }
-  .gnav__list a {
+  .gnav__item a {
     position: relative;
     display: block;
     padding: 15px 20px;
@@ -589,7 +589,7 @@ iframe {
     color: #333;
     text-decoration: none;
   }
-  .gnav__list a::after {
+  .gnav__item a::after {
     position: absolute;
     top: 0;
     right: 20px;
@@ -603,7 +603,7 @@ iframe {
     border-right: 2px solid #d39e27;
     transform: rotate(45deg);
   }
-  .gnav__list [lang="en"] {
+  .gnav__item [lang="en"] {
     margin-left: 1em;
     font-size: 1.4rem;
   }
@@ -614,10 +614,10 @@ iframe {
     display: flex;
     align-items: center;
   }
-  .gnav__list li {
-    margin: 0 1em;
+  .gnav__item {
+    margin: 0 0.9em;
   }
-  .gnav__list a {
+  .gnav__item a {
     display: block;
     font-size: 2rem;
     font-weight: bold;
@@ -626,17 +626,17 @@ iframe {
     text-align: center;
     text-decoration: none;
   }
-  .gnav__list a:hover {
+  .gnav__item a:hover {
     color: #d39e27;
   }
-  .gnav__list [lang="en"] {
+  .gnav__item [lang="en"] {
     display: block;
     font-size: 1.2rem;
   }
 }
 
 @media (min-width: 950px) {
-  .gnav__list li {
+  .gnav__item {
     margin: 0 2em;
   }
 }
@@ -666,6 +666,19 @@ iframe {
   block
   ページ固有のブロックのスタイルの定義
 ================================================================ */
+/*----------------------------------
+  Access-map
+------------------------------------*/
+.access-map {
+  margin-top: 30px;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+}
+
+.access-map iframe {
+  border: 0;
+}
+
 /*----------------------------------
   Button
 ------------------------------------*/
@@ -697,6 +710,95 @@ iframe {
   border-top: 2px solid;
   border-right: 2px solid;
   transform: rotate(45deg);
+}
+
+.button--email {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/*----------------------------------
+  Contact
+------------------------------------*/
+.contact {
+  padding: 30px 20px;
+  background: #fcf7ed;
+}
+
+.contact__item + .contact__item {
+  padding-top: 25px;
+  margin-top: 25px;
+  border-top: 1px solid #ccc;
+}
+
+.contact__tel {
+  text-align: center;
+}
+
+.contact__tel-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.contact__tel-number::before {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+  content: "";
+  background: url(../../img/ico_tel.svg) left top/contain no-repeat;
+}
+
+.contact__tel-number a {
+  font-family: "Lato", sans-serif;
+  font-size: 3.6rem;
+  font-weight: bold;
+  color: #d39e27;
+  text-decoration: none;
+}
+
+.contact__tel-text {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 499px) {
+  .contact {
+    padding: 30px calc((20 / 375) * 100vw);
+  }
+  .contact__tel-number::before {
+    width: calc((48 / 375) * 100vw);
+    height: calc((48 / 375) * 100vw);
+    margin-right: calc((10 / 375) * 100vw);
+  }
+  .contact__tel-number a {
+    font-size: calc((34 / 375) * 100vw);
+  }
+}
+
+@media (min-width: 950px) {
+  .contact {
+    display: flex;
+  }
+  .contact__item + .contact__item {
+    padding-top: 80px;
+    padding-left: 20px;
+    margin-top: 0;
+    border-top: 0;
+    border-left: 1px solid #ccc;
+  }
+  .contact__item {
+    width: 50%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .contact__tel-number a {
+    font-size: 4.8rem;
+  }
+  .contact__tel-text {
+    font-size: 1.6rem;
+  }
 }
 
 /*----------------------------------
@@ -838,6 +940,102 @@ iframe {
   }
   .mv__catch {
     font-size: 4rem;
+  }
+}
+
+/*----------------------------------
+  Plan
+------------------------------------*/
+.plan__item {
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid #d39e27;
+  border-radius: 4px;
+}
+
+.plan__item::before {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 15px;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.plan__item--master::before {
+  background-image: url(../../img/ico_plan_master.svg);
+}
+
+.plan__item--daytime::before {
+  background-image: url(../../img/ico_plan_day.svg);
+}
+
+.plan__item--nighttime::before {
+  background-image: url(../../img/ico_plan_night.svg);
+}
+
+.plan__item--dropin::before {
+  background-image: url(../../img/ico_plan_dropin.svg);
+}
+
+.plan__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 77px;
+  padding: 10px;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
+  background: #fcf7ed;
+}
+
+.plan__data {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  font-size: 1.4rem;
+}
+
+.plan__data dt {
+  flex-shrink: 0;
+  width: 5em;
+}
+
+.plan__data dt::after {
+  content: "：";
+}
+
+.plan__data dd {
+  width: calc(100% - 5em);
+}
+
+@media (min-width: 500px) {
+  .plan {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .plan__item {
+    width: 49%;
+  }
+}
+
+@media (min-width: 950px) {
+  .plan__item {
+    width: 23.5%;
+  }
+}
+
+.plan__button-wrapper {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+@media (min-width: 768px) {
+  .plan__button-wrapper {
+    margin: 50px auto;
   }
 }
 

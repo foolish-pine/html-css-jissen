@@ -1,0 +1,90 @@
+/*----------------------------------
+  Contact
+------------------------------------*/
+.contact {
+  padding: 30px 20px;
+  background: $c_main2;
+}
+
+.contact__item + .contact__item {
+  padding-top: 25px;
+  margin-top: 25px;
+  border-top: 1px solid $c_gray2;
+}
+
+.contact__tel {
+  text-align: center;
+}
+
+.contact__tel-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  &::before {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    content: "";
+    background: url(../../img/ico_tel.svg) left top / contain no-repeat;
+  }
+  a {
+    font-family: $f_sans_e;
+    font-size: 3.6rem;
+    font-weight: bold;
+    color: $c_main1;
+    text-decoration: none;
+  }
+}
+
+.contact__tel-text {
+  font-size: 1.2rem;
+}
+
+@include mq_max_sm {
+  .contact {
+    padding: 30px calc((20 / 375) * 100vw);
+  }
+
+  .contact__tel-number {
+    &::before {
+      width: calc((48 / 375) * 100vw);
+      height: calc((48 / 375) * 100vw);
+      margin-right: calc((10 / 375) * 100vw);
+    }
+    a {
+      font-size: calc((34 / 375) * 100vw);
+    }
+  }
+}
+
+@include mq_min_lg {
+  .contact {
+    display: flex;
+  }
+
+  .contact__item + .contact__item {
+    padding-top: 80px;
+    padding-left: 20px;
+    margin-top: 0;
+    border-top: 0;
+    border-left: 1px solid $c_gray2;
+  }
+
+  .contact__item {
+    width: 50%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .contact__tel-number {
+    a {
+      font-size: 4.8rem;
+    }
+  }
+
+  .contact__tel-text {
+    font-size: 1.6rem;
+  }
+}
